@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import FormGroupText from "../utils/FormGroupText";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Mapa from "../utils/mapa";
 
 export default function FormularioCines(props:formularioCinesProps){
     return(
@@ -17,6 +18,15 @@ export default function FormularioCines(props:formularioCinesProps){
            {(formikProps)=>(
                <Form>
                    <FormGroupText label="Nombre" campo="nombre"/>
+
+                    <div style={{marginBottom: '1rem'}}>
+                        <Mapa
+                        
+                        />
+                    </div>
+
+
+
                    <Button disabled={formikProps.isSubmitting}
                         type="submit">
                             Salvar
