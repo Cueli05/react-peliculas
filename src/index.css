@@ -23,3 +23,7 @@ form > a{
 .color{
   color: blue;
 }
+
+.pointer{
+  cursor: pointer;
+}

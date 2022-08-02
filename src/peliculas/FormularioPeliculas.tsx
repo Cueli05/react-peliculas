@@ -14,6 +14,7 @@ import { generoDTO } from "../generos/generos.model";
 import { useState } from "react";
 import { cinesDTO } from "../cines/cines.model";
 import TypeAHeadActores from "../actores/typeAHeadActores";
+import { actorPeliculaDTO } from "../actores/actores.model";
 
 export default function FormularioPeliculas(props: formularioPeliculasProps) {
   const [generosSeleccionados, setGenerosSeleccionados] = useState(
@@ -30,6 +31,8 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
   const [cinesNoSeleccionados, setCinesNoSeleccionados] = useState(
     mapear(props.cinesNoSeleccionados)
   );
+  
+  const [actoresSeleccionados, setActoresSeleccionados] = useState<actorPeliculaDTO[]>([])
 
   function mapear(
     arreglo: { id: number; nombre: string }[]
@@ -94,7 +97,31 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
             </div>
 
             <div className="form-group">
-              <TypeAHeadActores actores={[]} />
+              <TypeAHeadActores 
+              onAdd={actores=>{
+                    setActoresSeleccionados(actores);
+              }}
+              onRemove={actor =>{
+                const actores = actoresSeleccionados.filter(x => x !== actor);
+                  setActoresSeleccionados(actores);
+              }}
+              actores={actoresSeleccionados}
+              listadoUI={(actor:actorPeliculaDTO)=>
+              <>
+                {actor.nombre}  / <input placeholder="Personaje"
+                type="text" value ={actor.personaje}
+                onChange={e=>{
+                  const indice = actoresSeleccionados
+                  .findIndex(x=> x.id === actor.id);
+                  
+                  const actores =[...actoresSeleccionados];
+                  actores[indice].personaje = e.currentTarget.value;
+                  setActoresSeleccionados(actores);
+                }}
+                />
+              </>
+              }
+              />
             </div>
 
             <Button disabled={FormikProps.isSubmitting} type="submit">
