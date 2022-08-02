@@ -13,7 +13,7 @@ import SelectorMultiple, {
 import { generoDTO } from "../generos/generos.model";
 import { useState } from "react";
 import { cinesDTO } from "../cines/cines.model";
-import TypeAHeadActores from "../actores/typeAHeadActores";
+import TypeAHeadActores from "../actores/TypeAHeadActores";
 import { actorPeliculaDTO } from "../actores/actores.model";
 
 export default function FormularioPeliculas(props: formularioPeliculasProps) {

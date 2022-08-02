@@ -3,7 +3,7 @@ import { ReactElement } from "react-markdown/lib/react-markdown";
 import { actorCreacionDTO, actorPeliculaDTO } from "./actores.model";
 import { useState } from "react";
 
-export default function typeAHeadActores(props: typeAHeadActoresProps) {
+export default function TypeAHeadActores(props: typeAHeadActoresProps) {
   const actores: actorPeliculaDTO[] = [
     {
       id: 1,
