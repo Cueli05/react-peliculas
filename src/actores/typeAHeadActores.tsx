@@ -41,7 +41,7 @@ export default function typeAHeadActores(props: typeAHeadActoresProps) {
 
   const[elementoArrastrado,setElementoArrastrado] = useState < actorPeliculaDTO | undefined>(undefined)
 
-  
+
   function manejarDragStart(actor: actorPeliculaDTO)
   {
     setElementoArrastrado(actor);
@@ -99,7 +99,7 @@ export default function typeAHeadActores(props: typeAHeadActoresProps) {
       <ul className="list-group">
         {props.actores.map(actor => <li 
         draggable = {true}
-        onDragStart ={()=> manejarDragStart(actor)}
+      onDragStart ={()=> manejarDragStart(actor)}
         onDragOver ={()=> manejarDragOver(actor)}
         className="list-group-item list-group-item-action"
         key={actor.id}>
